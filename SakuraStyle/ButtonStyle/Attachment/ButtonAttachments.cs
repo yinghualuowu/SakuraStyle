@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace SakuraStyle.ButtonStyle.Attachment
@@ -37,24 +36,6 @@ namespace SakuraStyle.ButtonStyle.Attachment
         {
             obj.SetValue(PressedImageProperty, value);
         }
-
-
-
-        public static Orientation GetMyProperty(DependencyObject obj)
-        {
-            return (Orientation)obj.GetValue(ImageOrientationProperty);
-        }
-
-        public static void SetMyProperty(DependencyObject obj, Orientation value)
-        {
-            obj.SetValue(ImageOrientationProperty, value);
-        }
-
-        public static readonly DependencyProperty ImageOrientationProperty =
-            DependencyProperty.RegisterAttached("ImageOrientation", 
-                typeof(Orientation), 
-                typeof(ButtonAttachments), 
-                new PropertyMetadata(Orientation.Horizontal));
 
         public static readonly DependencyProperty ImageWidthProperty = DependencyProperty.RegisterAttached(
             "ImageWidth",
@@ -105,20 +86,20 @@ namespace SakuraStyle.ButtonStyle.Attachment
             obj.SetValue(CornerRadiusProperty, value);
         }
 
-        public static readonly DependencyProperty ContentVisibilityProperty = DependencyProperty.RegisterAttached(
-            "ContentVisibility",
-            typeof(Visibility),
+        public static readonly DependencyProperty ImagePositionProperty = DependencyProperty.RegisterAttached(
+            "ImagePosition",
+            typeof(PositionEnumType),
             typeof(ButtonAttachments),
-            new PropertyMetadata(Visibility.Visible));
+            new PropertyMetadata(PositionEnumType.Right));
 
-        public static void SetContentVisibility(DependencyObject element, object value)
+        public static void SetImagePosition(DependencyObject element, PositionEnumType value)
         {
-            element.SetValue(ContentVisibilityProperty, value);
+            element.SetValue(ImagePositionProperty, value);
         }
 
-        public static Visibility GetContentVisibility(DependencyObject element)
+        public static PositionEnumType GetImagePosition(DependencyObject element)
         {
-            return (Visibility)element.GetValue(ContentVisibilityProperty);
+            return (PositionEnumType) element.GetValue(ImagePositionProperty);
         }
 
         public static readonly DependencyProperty ContentMarginProperty = DependencyProperty.RegisterAttached(
@@ -129,12 +110,12 @@ namespace SakuraStyle.ButtonStyle.Attachment
 
         public static void SetContentMargin(DependencyObject element, object value)
         {
-            element.SetValue(ContentVisibilityProperty, value);
+            element.SetValue(ContentMarginProperty, value);
         }
 
         public static Thickness GetContentMargin(DependencyObject element)
         {
-            return (Thickness)element.GetValue(ContentVisibilityProperty);
+            return (Thickness)element.GetValue(ContentMarginProperty);
         }
     }
 }

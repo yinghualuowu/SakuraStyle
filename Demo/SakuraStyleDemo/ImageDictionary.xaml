@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SakuraStyleDemo">
+    <ImageSource x:Key="Image.HelpNormal">Image/help_normal.png</ImageSource>
+    <ImageSource x:Key="Image.HelpPress">Image/help_press.png</ImageSource>
+</ResourceDictionary>

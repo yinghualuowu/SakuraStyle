@@ -4,9 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SakuraStyleDemo"
+        xmlns:attachment="clr-namespace:SakuraStyle.ButtonStyle.Attachment;assembly=SakuraStyle"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Style="{StaticResource Style.ImageButton}"
+                Width="50"
+                Height="50"
+                Content="123"
+                Background="Transparent"
+                attachment:ButtonAttachments.ContentMargin="0 10 0 0"
+                attachment:ButtonAttachments.CornerRadius="10"
+                attachment:ButtonAttachments.ImagePosition="Bottom"
+                attachment:ButtonAttachments.ImageWidth="18"
+                attachment:ButtonAttachments.ImageHeight="18"
+                attachment:ButtonAttachments.NormalImage="{StaticResource Image.HelpNormal}"
+                attachment:ButtonAttachments.PressedImage="{StaticResource Image.HelpPress}"/>
     </Grid>
 </Window>

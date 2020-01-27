@@ -11,26 +11,142 @@
     </Style>
 
     <Style x:Key="Style.ImageButton" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <StackPanel Orientation="{Binding Path=(res:ButtonAttachments.ImageOrientation)}">
-                        <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
-                                   FontSize="{Binding Path=FontSize,RelativeSource={RelativeSource TemplatedParent}}"/>
-                        <Image Name="Image" Stretch="Uniform"
-                               Margin="{Binding Path=(res:ButtonAttachments.ContentMargin), RelativeSource={RelativeSource TemplatedParent}}"
-                               Width="{Binding Path=(res:ButtonAttachments.ImageWidth), RelativeSource={RelativeSource TemplatedParent}}"
-                               Height="{Binding Path=(res:ButtonAttachments.ImageHeight), RelativeSource={RelativeSource TemplatedParent}}"
-                               Source="{Binding Path=(res:ButtonAttachments.NormalImage), RelativeSource={RelativeSource TemplatedParent}}"/>
-                    </StackPanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="Image" Property="Image.Source" Value="{Binding Path=(res:ButtonAttachments.PressedImage), RelativeSource={RelativeSource TemplatedParent}}" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+       <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=(res:ButtonAttachments.ImagePosition),RelativeSource={RelativeSource Self},Mode=OneWay}" Value="Left">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="MainGrid">
+                                <Border x:Name="BorderBg"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="{Binding Path=(res:ButtonAttachments.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <StackPanel VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      Orientation="Horizontal">
+                                   
+                                    <Image Name="Image" 
+                                           Stretch="Uniform"
+                                           Margin="{Binding Path=(res:ButtonAttachments.ContentMargin), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Width="{Binding Path=(res:ButtonAttachments.ImageWidth), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Height="{Binding Path=(res:ButtonAttachments.ImageHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Source="{Binding Path=(res:ButtonAttachments.NormalImage), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <ContentPresenter RecognizesAccessKey="True"
+                                                      VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="Image" Property="Image.Source" Value="{Binding Path=(res:ButtonAttachments.PressedImage), RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=(res:ButtonAttachments.ImagePosition),RelativeSource={RelativeSource Self},Mode=OneWay}" Value="Right">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="MainGrid">
+                                <Border x:Name="BorderBg"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="{Binding Path=(res:ButtonAttachments.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <StackPanel VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      Orientation="Horizontal">
+                                    <ContentPresenter RecognizesAccessKey="True"
+                                                      VerticalAlignment="Center"/>
+                                    <Image Name="Image" 
+                                           Stretch="Uniform"
+                                           Margin="{Binding Path=(res:ButtonAttachments.ContentMargin), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Width="{Binding Path=(res:ButtonAttachments.ImageWidth), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Height="{Binding Path=(res:ButtonAttachments.ImageHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Source="{Binding Path=(res:ButtonAttachments.NormalImage), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                </StackPanel>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="Image" Property="Image.Source" Value="{Binding Path=(res:ButtonAttachments.PressedImage), RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=(res:ButtonAttachments.ImagePosition),RelativeSource={RelativeSource Self},Mode=OneWay}" Value="Top">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="MainGrid">
+                                <Border x:Name="BorderBg"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="{Binding Path=(res:ButtonAttachments.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <StackPanel VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      Orientation="Vertical">
+                                    <Image Name="Image" 
+                                           Stretch="Uniform"
+                                           Margin="{Binding Path=(res:ButtonAttachments.ContentMargin), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Width="{Binding Path=(res:ButtonAttachments.ImageWidth), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Height="{Binding Path=(res:ButtonAttachments.ImageHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Source="{Binding Path=(res:ButtonAttachments.NormalImage), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <ContentPresenter RecognizesAccessKey="True"
+                                                      VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="Image" Property="Image.Source" Value="{Binding Path=(res:ButtonAttachments.PressedImage), RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=(res:ButtonAttachments.ImagePosition),RelativeSource={RelativeSource Self},Mode=OneWay}" Value="Bottom">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="MainGrid">
+                                <Border x:Name="BorderBg"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="{Binding Path=(res:ButtonAttachments.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <StackPanel VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      Orientation="Vertical">
+                                    <ContentPresenter RecognizesAccessKey="True"
+                                                      VerticalAlignment="Center"/>
+                                    <Image Name="Image" 
+                                           Stretch="Uniform"
+                                           Margin="{Binding Path=(res:ButtonAttachments.ContentMargin), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Width="{Binding Path=(res:ButtonAttachments.ImageWidth), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Height="{Binding Path=(res:ButtonAttachments.ImageHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                                           Source="{Binding Path=(res:ButtonAttachments.NormalImage), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    
+                                </StackPanel>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="Image" Property="Image.Source" Value="{Binding Path=(res:ButtonAttachments.PressedImage), RelativeSource={RelativeSource TemplatedParent}}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
     
 </ResourceDictionary>
