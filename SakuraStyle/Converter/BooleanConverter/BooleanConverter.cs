@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace SakuraStyle.Converter.BooleanConverter
 {
-    public class BooleanConverter<T>:IValueConverter
+    public class BooleanConverter<T> : IValueConverter
     {
         protected BooleanConverter(T tValue, T fValue)
         {
@@ -16,7 +16,7 @@ namespace SakuraStyle.Converter.BooleanConverter
         public T True { get; set; }
 
         public T False { get; set; }
-        
+
 
         public virtual object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

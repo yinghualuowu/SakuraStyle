@@ -58,6 +58,7 @@
     <Compile Include="Converter\BooleanConverter\BooleanConverter.cs" />
     <Compile Include="Converter\BooleanConverter\BooleanToInverseConverter.cs" />
     <Compile Include="Converter\BooleanConverter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\ModelConverter\ModelToConverter.cs" />
     <Compile Include="EnumType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -3,7 +3,7 @@
 namespace SakuraStyle.Converter.BooleanConverter
 {
     [ValueConversion(typeof(bool), typeof(bool))]
-    public class BooleanToInverseConverter:BooleanConverter<bool>
+    public class BooleanToInverseConverter : BooleanConverter<bool>
     {
         public BooleanToInverseConverter() : base(true, false) { }
     }
