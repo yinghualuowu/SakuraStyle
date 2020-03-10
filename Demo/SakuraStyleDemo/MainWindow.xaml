@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SakuraStyleDemo"
         xmlns:attachment="clr-namespace:SakuraStyle.ButtonStyle.Attachment;assembly=SakuraStyle"
+        xmlns:booleanConverter="clr-namespace:SakuraStyle.Converter.BooleanConverter;assembly=SakuraStyle"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <booleanConverter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" True="Collapsed" False="Visible"/>
+         <booleanConverter:BooleanToInverseConverter x:Key="BooleanToInverseConverter" True="False" False="True"/>
+    </Window.Resources>
     <Grid>
         <Button Style="{StaticResource Style.ImageButton}"
                 Width="50"
@@ -19,6 +24,7 @@
                 attachment:ButtonAttachments.ImageWidth="18"
                 attachment:ButtonAttachments.ImageHeight="18"
                 attachment:ButtonAttachments.NormalImage="{StaticResource Image.HelpNormal}"
-                attachment:ButtonAttachments.PressedImage="{StaticResource Image.HelpPress}"/>
+                attachment:ButtonAttachments.PressedImage="{StaticResource Image.HelpPress}"
+                IsEnabled="{Binding Flag,Converter={StaticResource BooleanToInverseConverter}}"/>
     </Grid>
 </Window>

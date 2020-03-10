@@ -99,7 +99,7 @@ namespace SakuraStyle.ButtonStyle.Attachment
 
         public static PositionEnumType GetImagePosition(DependencyObject element)
         {
-            return (PositionEnumType) element.GetValue(ImagePositionProperty);
+            return (PositionEnumType)element.GetValue(ImagePositionProperty);
         }
 
         public static readonly DependencyProperty ContentMarginProperty = DependencyProperty.RegisterAttached(

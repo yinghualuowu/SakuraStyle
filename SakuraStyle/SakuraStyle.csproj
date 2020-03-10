@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButtonStyle\Attachment\ButtonAttachments.cs" />
+    <Compile Include="Converter\BooleanConverter\BooleanConverter.cs" />
+    <Compile Include="Converter\BooleanConverter\BooleanToInverseConverter.cs" />
+    <Compile Include="Converter\BooleanConverter\BooleanToVisibilityConverter.cs" />
     <Compile Include="EnumType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
